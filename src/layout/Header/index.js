@@ -7,8 +7,9 @@ const Header = ({ clickHandler }) => {
   return (
     <header className="Header">
       <div className="container">
-        <a href="index.html" className="Header__logo">
+        <a href="index.html" className="Header__logo" title="logo">
           <img src={logo} alt="" />
+          <span>logo</span>
         </a>
         <nav className="Header__nav">
           <Link

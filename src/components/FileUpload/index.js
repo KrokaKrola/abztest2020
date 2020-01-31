@@ -43,7 +43,7 @@ const FileUpload = ({
           : ''
       }`}
     >
-      <label>{label}</label>
+      <label htmlFor={props.id || props.name}>{label}</label>
       <span>{fileName || 'Upload your photo'}</span>
       <input
         {...field}
