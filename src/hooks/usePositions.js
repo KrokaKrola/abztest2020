@@ -5,9 +5,15 @@ export default function() {
   const [positions, setPositions] = useState([]);
 
   useEffect(() => {
-    instance.get('/positions').then(result => {
-      setPositions(result.data.positions);
-    });
+    let cleanup = false;
+    if (!cleanup) {
+      instance.get('/positions').then(result => {
+        setPositions(result.data.positions);
+      });
+    }
+    return () => {
+      cleanup = true;
+    };
   }, []);
 
   return positions;

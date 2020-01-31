@@ -1,7 +1,20 @@
 .Footer {
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid #ececec;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ececec;
+}
+
+@media screen and (max-width: $mobile-big) {
+  .Footer p {
+    margin-left: 7px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .Footer p {
+    margin-left: -2px;
+    margin-top: 1px;
+  }
 }

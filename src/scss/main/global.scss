@@ -46,8 +46,30 @@
   overflow-x: hidden;
   position: relative;
   padding-top: 60px;
+  @media screen and (max-width: $mobile) {
+    padding-top: 40px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($black, 0.5);
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+  }
   &.sticky {
     overflow: unset;
+  }
+  &.overlay {
+    &:before {
+      opacity: 1;
+      visibility: visible;
+    }
   }
   .header {
     flex: 0 0 auto;
@@ -58,5 +80,12 @@
   }
   .footer {
     flex: 0 0 auto;
+  }
+}
+
+a {
+  color: #393939;
+  &:hover {
+    color: $primary-color;
   }
 }

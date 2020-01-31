@@ -1,15 +1,15 @@
 import React from 'react';
-import aboutMain from '../../assets/about.png';
-import aboutMainHQ from '../../assets/about@2x.png';
+import aboutMain from '../../assets/about.svg';
+import { Link } from 'react-scroll';
 
 const About = () => {
   return (
-    <figure className="About">
+    <figure className="About" id="requirements">
       <div className="container">
         <h2 className="section-header">Let's get acquainted</h2>
         <div className="About__wrapper">
           <div className="About__img">
-            <img src={aboutMain} srcSet={`${aboutMainHQ} 2x`} alt="" />
+            <img src={aboutMain} alt="" />
           </div>
           <div className="About__info">
             <h3>I am cool frontend developer</h3>
@@ -24,7 +24,16 @@ const About = () => {
               runner (gulp/webpack) you will get bonus points as well. Slice
               service directory page P​SD mockup​ into HTML5/CSS3.
             </p>
-            <button className="btn btn--flat">Sign up now</button>
+            <Link
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+              to="register"
+              className="btn btn--flat"
+            >
+              Sing up now
+            </Link>
           </div>
         </div>
       </div>

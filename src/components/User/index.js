@@ -1,14 +1,15 @@
-import React from "react";
-import TextOverflowTooltip from "../TextOverflowTooltip";
+import React from 'react';
+import TextOverflowTooltip from '../TextOverflowTooltip';
 import PropTypes from 'prop-types';
+import { animated } from 'react-spring';
 
-const User = ({ user }) => {
+const User = ({ user, style }) => {
   const { photo, name, position, email, phone } = user;
 
   return (
-    <div className="User" >
+    <animated.div className="User" style={style}>
       <div className="User__avatar">
-        <img src={photo || "https://via.placeholder.com/70"} alt={name} />
+        <img src={photo || 'https://via.placeholder.com/70'} alt={name} />
       </div>
       <TextOverflowTooltip
         popoverPlacement="bottom"
@@ -26,7 +27,7 @@ const User = ({ user }) => {
         {email}
       </TextOverflowTooltip>
       <span className="User__phone">{phone}</span>
-    </div>
+    </animated.div>
   );
 };
 
@@ -36,6 +37,6 @@ User.propTypes = {
   position: PropTypes.number,
   email: PropTypes.string,
   phone: PropTypes.string
-}
+};
 
 export default User;

@@ -4,9 +4,9 @@
   text-align: center;
 
   &__avatar {
-    margin: 0 auto 20px;
-    max-width: 74px;
-    max-height: 74px;
+    margin: 0 auto 15px;
+    max-width: 71px;
+    max-height: 71px;
     height: 100%;
     width: 100%;
     border-radius: 50%;
@@ -35,13 +35,13 @@
   }
 
   &__name {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
+    line-height: 30px;
     text-overflow: ellipsis;
     overflow: hidden;
-    line-height: 132%;
     font-size: 24px;
     font-weight: 400;
-    width: 100%!important;
+    width: 100% !important;
   }
 
   &__position,
@@ -50,6 +50,7 @@
     margin-bottom: 12px;
     display: block;
     line-height: 100%;
+    color: #4c4b4b;
   }
 
   &__email {
@@ -58,6 +59,27 @@
     overflow: hidden;
     position: relative;
     line-height: 125%;
-    width: 100%!important;
+    width: 100% !important;
+    font-size: 16px;
+    margin-bottom: 7px;
+  }
+
+  &__position {
+    font-size: 16px;
+    line-height: 23px;
+    margin-bottom: 3px;
+  }
+
+  &__phone {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .User {
+    
+    &__name {
+      line-height: 30px;
+    }
   }
 }

@@ -1,12 +1,14 @@
 // Widths
 $mobile-sm: 479px;
-$mobile: 575px;
-$mobile-big: 767px;
-$tablet: 991px;
-$desktop: 1199px;
+$mobile: 600px;
+$mobile-md: 678px;
+$mobile-big: 768px;
+$tablet: 992px;
+$desktop: 1024px;
 
 // Fonts
-$default-font: 'OpenSans-Regular', sans-serif; //400/700
+$default-font: 'OpenSans-Regular', sans-serif; //400
+$default-font-semibold: 'OpenSans-Semibold', sans-serif; // 700
 $additional-font: 'PTSans-Regular', sans-serif; //400
 
 // Colors

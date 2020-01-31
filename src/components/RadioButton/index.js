@@ -1,5 +1,5 @@
-import React from "react";
-import { useField } from "formik";
+import React from 'react';
+import { useField } from 'formik';
 import PropTypes from 'prop-types';
 
 const RadioButton = ({ label, ...props }) => {
@@ -16,6 +16,6 @@ const RadioButton = ({ label, ...props }) => {
 RadioButton.propTypes = {
   label: PropTypes.string.isRequired,
   props: PropTypes.object
-}
+};
 
 export default RadioButton;

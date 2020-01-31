@@ -1,28 +1,92 @@
 .Users {
-  padding: 160px 0;
+  padding: 150px 0 160px;
   background-color: $secondary-background-color;
+  position: relative;
+
   h2 {
-    margin-bottom: 25px;
+    margin-bottom: 19px;
   }
+
   .subinfo {
     margin-bottom: 75px;
   }
+
   &__grid {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 50px;
+    padding: 0px 30px 0 48px;
+    min-height: 500px;
+    position: relative;
   }
+
   .User {
-    flex-basis: 28.9%;
-    max-width: 28.9%;
-    margin-right: 6.65%;
-    margin-bottom: 50px;
+    width: 100%;
+    margin: 0 14.5% 0 0;
+    max-width: 23.45%;
+    margin-bottom: 43px;
+
     &:nth-of-type(3n + 3) {
       margin-right: 0;
     }
   }
+
   .btn {
     width: 210px;
-    margin: auto;
+    margin: 5px auto 0;
+  }
+}
+
+@media screen and (max-width: $mobile-big) {
+  .Users {
+    padding: 110px 0 120px;
+
+    &__grid {
+      padding: 0 10px;
+    }
+
+    .User {
+      margin: 0px 5.9% 43px 0;
+      max-width: 29.35%;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-md) {
+  .Users {
+
+    .User {
+      max-width: 47%;
+      margin: 0 6% 43px 0;
+
+      &:nth-of-type(3n + 3) {
+        margin: 0 6% 43px 0;
+      }
+
+      &:nth-of-type(2n + 2) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .Users {
+    padding: 71px 0 80px;
+
+    h2 {
+      margin-bottom: 9px;
+    }
+
+    .User {
+      max-width: 100%;
+
+      &:nth-of-type(n) {
+        margin-right: 0;
+      }
+    }
+    
+    .subinfo {
+      margin-bottom: 36px;
+    }
   }
 }

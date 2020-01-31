@@ -1,8 +1,10 @@
+// basic styles
+@import './main/variables.scss';
 @import './main/fonts.scss';
 @import './main/global.scss';
-@import './main/variables.scss';
 @import './main/scafolding.scss';
 
+// Layout components
 @import './Header/Header.scss';
 @import './Hero/Hero.scss';
 @import './About/About.scss';
@@ -10,6 +12,7 @@
 @import './User/User.scss';
 @import './Register/Register.scss';
 @import './Footer/Footer.scss';
+@import './MobileMenu/MobileMenu.scss';
 
 // Decorations
 @import './decorations/btn.scss';
@@ -17,3 +20,5 @@
 @import './decorations/RadioButton.scss';
 @import './decorations/FileUpload.scss';
 @import './decorations/tooltip.scss';
+@import './decorations/modal.scss';
+@import './decorations/spinner.scss';

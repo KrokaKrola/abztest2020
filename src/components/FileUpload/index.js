@@ -1,5 +1,5 @@
-import React from "react";
-import { useField } from "formik";
+import React from 'react';
+import { useField } from 'formik';
 import PropTypes from 'prop-types';
 
 const FileUpload = ({
@@ -23,13 +23,13 @@ const FileUpload = ({
       if (file.name) {
         setFileName(file.name);
       } else {
-        helpers.setError("Error");
+        helpers.setError('Error');
         setFileName(null);
       }
     };
-    img.addEventListener("load", () => {
+    img.addEventListener('load', () => {
       if (img.width < 75 || img.height < 75)
-        helpers.setError("Image width and height must be greater then 75x75");
+        helpers.setError('Image width and height must be greater then 75x75');
     });
     reader.readAsDataURL(file);
   };
@@ -37,13 +37,14 @@ const FileUpload = ({
     <div
       className={`FileUpload ${
         meta.error && meta.touched
-          ? "FileUpload--error"
+          ? 'FileUpload--error'
           : fileName
-          ? "FileUpload--success"
-          : ""
+          ? 'FileUpload--success'
+          : ''
       }`}
     >
-      <span>{fileName || "No file choosen"}</span>
+      <label>{label}</label>
+      <span>{fileName || 'Upload your photo'}</span>
       <input
         {...field}
         {...props}
@@ -64,8 +65,8 @@ FileUpload.propTypes = {
   label: PropTypes.string.isRequired,
   setImageField: PropTypes.func.isRequired,
   fileName: PropTypes.string.isRequired,
-  setFileName: PropTypes.func.isRequired,
+  setFileName: PropTypes.func,
   props: PropTypes.object
-}
+};
 
 export default FileUpload;

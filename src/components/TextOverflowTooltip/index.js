@@ -1,6 +1,6 @@
-import React from "react";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import {debounce} from '../../utils';
+import React from 'react';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { debounce } from '../../utils';
 
 class TextOverflowTooltip extends React.Component {
   constructor(props) {
@@ -11,24 +11,29 @@ class TextOverflowTooltip extends React.Component {
   }
 
   reCalc() {
-    window.addEventListener('resize', debounce(() => {
-      if (
-        this.comp.offsetWidth === this.comp.scrollWidth &&
-        this.comp.offsetWidth !== 0
-      ) {
-        this.comp.style.width = this.comp.offsetWidth + 2 + "px";
-        this.setState({
-          showTooltip: false
-        });
-      } else if (
-        this.comp.offsetWidth < this.comp.scrollWidth &&
-        !this.state.showTooltip
-      ) {
-        this.setState({
-          showTooltip: true
-        });
-      }
-    }, 500));
+    window.addEventListener(
+      'resize',
+      debounce(() => {
+        if (this.comp) {
+          if (
+            this.comp.offsetWidth === this.comp.scrollWidth &&
+            this.comp.offsetWidth !== 0
+          ) {
+            this.comp.style.width = this.comp.offsetWidth + 2 + 'px';
+            this.setState({
+              showTooltip: false
+            });
+          } else if (
+            this.comp.offsetWidth < this.comp.scrollWidth &&
+            !this.state.showTooltip
+          ) {
+            this.setState({
+              showTooltip: true
+            });
+          }
+        }
+      }, 500)
+    );
   }
 
   componentDidMount() {
@@ -36,7 +41,7 @@ class TextOverflowTooltip extends React.Component {
       this.comp.offsetWidth === this.comp.scrollWidth &&
       this.comp.offsetWidth !== 0
     ) {
-      this.comp.style.width = this.comp.offsetWidth + 2 + "px";
+      this.comp.style.width = this.comp.offsetWidth + 2 + 'px';
     } else if (
       this.comp.offsetWidth < this.comp.scrollWidth &&
       !this.state.showTooltip
@@ -46,7 +51,10 @@ class TextOverflowTooltip extends React.Component {
       });
     }
     this.reCalc();
+  }
 
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.recalc);
   }
 
   render() {

@@ -1,6 +1,7 @@
 .TextInput {
-  margin-bottom: 25px;
+  margin-bottom: 18px;
   position: relative;
+
   label {
     font-family: $additional-font;
     font-size: 16px;
@@ -8,6 +9,7 @@
     display: block;
     margin-bottom: 5px;
   }
+
   input {
     border-width: 1px;
     border-color: rgb(206, 212, 218);
@@ -15,35 +17,52 @@
     border-radius: 4px;
     background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 36px;
-    padding-left: 14px;
+    height: 39px;
+    padding-left: 15px;
     font-family: $additional-font;
     color: $black;
     transition: border-color, box-shadow 0.2s ease-in-out;
     outline: none;
+    font-size: 16px;
+
+    &[disabled] {
+      background-color: rgb(233, 236, 239);
+      color: rgb(118, 126, 134);
+    }
 
     &:focus {
       box-shadow: 0 0 0 3px rgba(128, 189, 255, 0.2);
       border-color: $secondary-color;
-    }
-    &:active {
     }
 
     &::placeholder {
       color: #b2b9c0;
     }
   }
+
   &__info {
     font-size: 12px;
-    margin-top: 4px;
+    margin-top: 6px;
+    left: 2px;
     position: absolute;
+
+    @media screen and (max-width: $mobile) {
+      font-size: 11px;
+      margin-top: 4px;
+      left: -3px;
+      position: absolute;
+    }
   }
+
   .error {
     color: $primary-color;
   }
+
   &--error {
+
     input {
       border-color: $primary-color;
+      
       &:focus {
         box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
         border-color: $primary-color;

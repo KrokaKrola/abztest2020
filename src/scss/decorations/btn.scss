@@ -7,9 +7,30 @@
   align-items: center;
   color: $background-color;
   font-size: 16px;
+  width: 100%;
+  transition: 0.2s ease;
+  cursor: pointer;
+  
+  &:hover:not(&--flat) {
+    background-color: rgb(210, 67, 53);
+    color: #fff;
+  }
+
+  &[disabled] {
+    background-color: rgb(215, 215, 215);
+    color: rgb(141, 140, 140);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 
   &--flat {
     background-color: transparent;
     color: $primary-color;
+    font-family: $default-font-semibold;
+    padding: 0;
+    
+    &:hover {
+      color: rgb(210, 67, 53);
+    }
   }
 }

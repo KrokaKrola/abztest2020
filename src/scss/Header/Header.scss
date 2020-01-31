@@ -1,43 +1,79 @@
-.header {
-    height: 60px;
-    background-color: $background-color;
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    .container {
-        display: flex;
-        justify-content: space-between;
+.Header {
+  height: 60px;
+  background-color: $background-color;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    svg {
+      position: absolute;
+      left: 23px;
+      top: 65%;
+      transform: translate(-50%, -50%);
     }
-    &__logo {
-        position: relative;
-        display: flex;
-        align-items: center;
-        svg {
-            position: absolute;
-            left: 23px;
-            top: 65%;
-            transform: translate(-50%, -50%);
-        }
-        span {
-            font-size: 16px;
-            letter-spacing: 2px;
-            margin-left: 7px;
-        }
+
+    span {
+      font-size: 16px;
+      letter-spacing: 3.4px;
+      margin-left: 7px;
     }
-    &__nav-item {
-        margin-right: 30px;
-        transition: color .2s ease-in-out;
-        &.active {
-            color: $secondary-color;
-        }
-        &:hover {
-            color: $primary-color;
-        }
-        &:last-of-type {
-            margin-right: 0;
-        }
+  }
+
+  &__nav-item {
+    margin-right: 29px;
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &.active {
+      color: $secondary-color;
     }
+
+    &:hover:not(.active) {
+      color: $primary-color;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.burger {
+  display: none;
+  height: 15px;
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .Header {
+    
+    &__nav {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .Header {
+    height: 40px;
+    padding: 10px 0;
+  }
 }
