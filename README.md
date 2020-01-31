@@ -66,3 +66,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+// TODO
+- refactor register component
+  - make TextInput, FileUpload, RadioButton components
+  - incapsulate error messages
+  - make submit handler function
+- truncate library https://github.com/One-com/react-truncate http://shinychang.github.io/React-Text-Truncate/#
+-

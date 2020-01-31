@@ -1,12 +1,14 @@
 .User {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   text-align: center;
 
   &__avatar {
     margin: 0 auto 20px;
     max-width: 74px;
     max-height: 74px;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
@@ -33,13 +35,18 @@
   }
 
   &__name {
-    margin-bottom: 21px;
+    margin-bottom: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 132%;
   }
 
   &__position,
   &__email,
   &__phone {
     margin-bottom: 12px;
+    display: block;
+    line-height: 100%;
   }
 
   &__email {
@@ -47,5 +54,6 @@
     text-overflow: ellipsis;
     overflow: hidden;
     position: relative;
+    line-height: 125%;
   }
 }
