@@ -1,0 +1,15 @@
+.btn {
+  background-color: $primary-color;
+  height: 38px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $background-color;
+  font-size: 16px;
+
+  &--flat {
+    background-color: transparent;
+    color: $primary-color;
+  }
+}

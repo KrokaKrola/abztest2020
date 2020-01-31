@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: $default-font;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $black;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  &.no-style {
+    padding: 0;
+    list-style: none;
+  }
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+[contenteditable='true']:empty:before {
+  content: attr(data-placeholder);
+  color: #131313;
+  font-size: inherit;
+  display: block; /* For Firefox */
+}
+
+select {
+  appearance: none;
+  &::-ms-expand {
+    // для IE
+    display: none;
+  }
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+blockquote {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+.container {
+  max-width: 1170px;
+  padding: 0 30px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 54px;
+  font-weight: 400;
+}
+
+.section-header {
+  font-size: 50px;
+  line-height: 54px;
+  text-align: center;
+  margin-bottom: 65px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 400;
+}
+
+.subinfo {
+  color: $dirty;
+  font-size: 16px;
+  line-height: 22px;
+  display: block;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+}

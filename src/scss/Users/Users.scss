@@ -1,0 +1,28 @@
+.Users {
+  padding: 160px 0;
+  background-color: $secondary-background-color;
+  h2 {
+    margin-bottom: 25px;
+  }
+  .subinfo {
+    margin-bottom: 75px;
+  }
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 50px;
+  }
+  .User {
+    flex-basis: 28.9%;
+    max-width: 28.9%;
+    margin-right: 6.65%;
+    margin-bottom: 50px;
+    &:nth-of-type(3n + 3) {
+      margin-right: 0;
+    }
+  }
+  .btn {
+    width: 210px;
+    margin: auto;
+  }
+}

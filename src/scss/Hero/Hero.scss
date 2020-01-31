@@ -1,0 +1,21 @@
+.Hero {
+  background-image: url(../../assets/hero_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 115px 0;
+  .btn {
+    max-width: 210px;
+  }
+  h1 {
+    margin-bottom: 35px;
+    color: $background-color;
+    text-transform: uppercase;
+  }
+  p {
+    max-width: 465px;
+    margin-bottom: 35px;
+    color: $background-color;
+    line-height: 24px;
+  }
+}
