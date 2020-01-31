@@ -10,6 +10,7 @@ import Footer from './layout/Footer';
 import { instance } from './service/settings';
 import SuccessModal from './components/Modal';
 import MobileMenu from './components/MobileMenu';
+import { isMobile, isIOS } from 'react-device-detect';
 
 function App() {
   const [{ modalShow }, dispatch] = useAppState();
@@ -26,6 +27,7 @@ function App() {
   return (
     <>
       <MobileMenu
+        className={`${isMobile && isIOS && 'iosFix'}`}
         mobileMenuState={mobileMenuState}
         setMobileMenuState={setMobileMenuState}
       />

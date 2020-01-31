@@ -6,6 +6,10 @@
   width: 290px;
   overflow: auto;
 
+  &.iosFix {
+    padding-bottom: 30px;
+  }
+
   &__logo {
     height: 40px;
     padding: 10px 15px;

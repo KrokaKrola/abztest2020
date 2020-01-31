@@ -3,7 +3,6 @@ import useUsers from '../../hooks/useUsers';
 import User from '../../components/User';
 import { useAppState } from '../../store/app-state';
 import { useTransition } from 'react-spring';
-import { Spinner } from 'react-bootstrap';
 
 const Users = () => {
   const [{ page, users }, dispatch] = useAppState();
