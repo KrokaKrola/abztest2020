@@ -39,6 +39,9 @@
     text-overflow: ellipsis;
     overflow: hidden;
     line-height: 132%;
+    font-size: 24px;
+    font-weight: 400;
+    width: 100%!important;
   }
 
   &__position,
@@ -55,5 +58,6 @@
     overflow: hidden;
     position: relative;
     line-height: 125%;
+    width: 100%!important;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import useUsers from "../../hooks/useUsers";
-import { User } from "../../components/User";
+import User from "../../components/User";
 import { useAppState } from "../../store/app-state";
 
 const Users = () => {
