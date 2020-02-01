@@ -22,7 +22,7 @@ const User = ({ user, style }) => {
       <TextOverflowTooltip
         popoverPlacement="bottom"
         maxWidth="100%"
-        className="User__email text-overflow-tooltip"
+        className="text-overflow-tooltip User__email"
       >
         {email}
       </TextOverflowTooltip>

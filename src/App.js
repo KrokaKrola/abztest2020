@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { initialState, appStateReducer } from './store/appReducer';
 import AppStateProvider, { useAppState } from './store/app-state';
 import Header from './layout/Header';

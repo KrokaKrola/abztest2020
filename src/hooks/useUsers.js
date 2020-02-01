@@ -2,33 +2,40 @@ import { useEffect, useState } from 'react';
 import { instance } from '../service/settings';
 import { useAppState } from '../store/app-state';
 
-export default function(pageNumber, reset) {
-  const [, dispatch] = useAppState();
+export default function() {
+  const [{ nextPage }, dispatch] = useAppState();
+  const [localNextPage, setLocalNextPage] = useState(null);
+  const [pageStatus, setPageStatus] = useState({
+    total_pages: null,
+    page: null
+  });
   const [isLoading, setIsLoading] = useState(false);
-
-  const [buttonState, setButtonState] = useState(true);
   useEffect(() => {
     let cleanup = false;
     if (!cleanup) {
       setIsLoading(true);
       instance
-        .get(`/users?page=${reset ? 1 : pageNumber}&count=6`)
+        .get(`${nextPage.link ? nextPage.link : `/users?page=1&count=6`}`)
         .then(result => {
+          setPageStatus({
+            total_pages: result.data.total_pages,
+            page: result.data.page
+          });
           dispatch({ type: 'SET_USERS', users: result.data.users });
-          setButtonState(result.data.total_pages === pageNumber ? false : true);
+          if (result.data.links.next_url) {
+            setLocalNextPage(result.data.links.next_url.split('v1')[1]);
+          }
         })
         .catch(error => {
           console.log(error);
-          console.log(error.response.data.message);
-        })
-        .finally(() => {
+        }).finally(() => {
           setIsLoading(false);
-        });
+        })
     }
     return () => {
       cleanup = true;
     };
-  }, [dispatch, pageNumber, reset]);
+  }, [dispatch, nextPage]);
 
-  return [buttonState, isLoading];
+  return [localNextPage, pageStatus, isLoading];
 }

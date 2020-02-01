@@ -1,23 +1,21 @@
-import React from 'react';
-import useUsers from '../../hooks/useUsers';
-import User from '../../components/User';
-import { useAppState } from '../../store/app-state';
-import { useTransition } from 'react-spring';
+import React from "react";
+import useUsers from "../../hooks/useUsers";
+import User from "../../components/User";
+import { useAppState } from "../../store/app-state";
+import { useTransition } from "react-spring";
 
 const Users = () => {
-  const [{ page, users }, dispatch] = useAppState();
-  const [buttonState, isLoading] = useUsers(page.number, page.reset);
+  const [{ users }, dispatch] = useAppState();
+  const [localNextPage, pageStatus, isLoading] = useUsers();
 
   const transitions = useTransition(users, item => item.id, {
-    from: { opacity: 0, transform: 'translate3d(0, -10px, 0)' },
-    enter: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
-    leave: { opacity: 0, transform: 'translate3d(0, -10px, 0)' }
+    from: { opacity: 0, transform: "translate3d(0, -10px, 0)" },
+    enter: { opacity: 1, transform: "translate3d(0, 0, 0)" },
+    leave: { opacity: 0, transform: "translate3d(0, -10px, 0)" }
   });
+
   const clickHandler = () => {
-    dispatch({
-      type: 'SET_PAGE',
-      page: { number: page.number + 1, reset: false }
-    });
+    dispatch({ type: "SET_NEXT_PAGE", nextPage: {link: localNextPage} });
   };
 
   return (
@@ -33,12 +31,8 @@ const Users = () => {
               <User user={item} key={key} style={props} />
             ))}
         </div>
-        {buttonState && (
-          <button
-            className="btn"
-            disabled={isLoading}
-            onClick={() => clickHandler()}
-          >
+        {pageStatus.total_pages !== pageStatus.page && (
+          <button className="btn" disabled={isLoading} onClick={() => clickHandler()}>
             Show more
           </button>
         )}

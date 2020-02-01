@@ -1,6 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 import PropTypes from 'prop-types';
+import TextOverflowTooltip from '../TextOverflowTooltip';
 
 const FileUpload = ({
   label,
@@ -50,7 +51,14 @@ const FileUpload = ({
       }`}
     >
       <label htmlFor={props.id || props.name}>{label}</label>
-      <span>{fileName || 'Upload your photo'}</span>
+      <TextOverflowTooltip
+        popoverPlacement="bottom"
+        maxWidth="70%"
+        className=" text-overflow-tooltip"
+      >
+        {fileName || 'Upload your photo'}
+      </TextOverflowTooltip>
+      
       <input
         {...field}
         {...props}

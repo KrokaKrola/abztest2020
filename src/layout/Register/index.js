@@ -47,16 +47,19 @@ const Register = () => {
         Token: token
       }
     })
-      .then((result) => {
+      .then(result => {
         dispatch({ type: 'CLEAN_USERS' });
-        dispatch({ type: 'SET_PAGE', page: { number: 1, reset: result.data.user_id } });
+        dispatch({
+          type: 'SET_NEXT_PAGE',
+          nextPage: { link: null, regId: result.data.user_id }
+        });
         dispatch({ type: 'CHANGE_MODAL_STATE', modalShow: true });
         resetForm();
         setFileName(null);
         setImageField(null);
-        instance.get("/token").then(response => {
+        instance.get('/token').then(response => {
           const token = response.data.token;
-          dispatch({ type: "SET_TOKEN", token: token });
+          dispatch({ type: 'SET_TOKEN', token: token });
         });
       })
       .catch(error => {

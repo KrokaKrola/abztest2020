@@ -1,15 +1,28 @@
 export const initialState = {
   token: null,
-  page: {
-    number: 1,
-    reset: false
-  },
   users: [],
-  modalShow: false
+  modalShow: false,
+  nextPage: {
+    link: null,
+    regId: null
+  }
 };
 
 export const appStateReducer = (state, action) => {
   switch (action.type) {
+    case 'SET_NEXT_PAGE':
+      return {
+        ...state,
+        nextPage: {
+          ...state.nextPage,
+          ...action.nextPage
+        }
+      };
+    case 'CLEAN_USERS':
+      return {
+        ...state,
+        users: []
+      };
     case 'SET_TOKEN':
       return {
         ...state,
@@ -19,19 +32,6 @@ export const appStateReducer = (state, action) => {
       return {
         ...state,
         users: [...state.users, ...action.users]
-      };
-    case 'CLEAN_USERS':
-      return {
-        ...state,
-        users: []
-      };
-    case 'SET_PAGE':
-      return {
-        ...state,
-        page: {
-          ...state.page,
-          ...action.page
-        }
       };
     case 'CHANGE_MODAL_STATE':
       return {
