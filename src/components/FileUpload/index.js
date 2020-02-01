@@ -14,12 +14,12 @@ const FileUpload = ({
 
   const handleChange = e => {
     const file = e.currentTarget.files[0];
-    
-    if(file.size > 5000000) {
+
+    if (file.size > 5000000) {
       helpers.setError('The photo size must not be greater than 5 Mb.');
       return false;
     }
-    
+
     setImageField(file);
     const reader = new FileReader();
     const img = new Image();
@@ -58,7 +58,7 @@ const FileUpload = ({
       >
         {fileName || 'Upload your photo'}
       </TextOverflowTooltip>
-      
+
       <input
         {...field}
         {...props}
