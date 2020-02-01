@@ -13,6 +13,12 @@ const FileUpload = ({
 
   const handleChange = e => {
     const file = e.currentTarget.files[0];
+    
+    if(file.size > 5000000) {
+      helpers.setError('The photo size must not be greater than 5 Mb.');
+      return false;
+    }
+    
     setImageField(file);
     const reader = new FileReader();
     const img = new Image();
@@ -64,7 +70,7 @@ const FileUpload = ({
 FileUpload.propTypes = {
   label: PropTypes.string.isRequired,
   setImageField: PropTypes.func.isRequired,
-  fileName: PropTypes.string.isRequired,
+  fileName: PropTypes.string,
   setFileName: PropTypes.func,
   props: PropTypes.object
 };

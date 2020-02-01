@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import logo from '../../assets/logo.svg';
 import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import { useTransition, animated } from 'react-spring';
 import { Link } from 'react-scroll';
+import Logo from '../Logo';
 
 const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
   const mobileMenuRef = useRef(null);
@@ -27,7 +27,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
           <div className="MobileMenu__wrapper">
             <div className="MobileMenu__logo">
               <a href="index.html">
-                <img src={logo} alt="" />
+                <Logo />
               </a>
             </div>
             <nav className="MobileMenu__nav-block">
@@ -191,5 +191,6 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
       )
   );
 };
+ 
 
 export default MobileMenu;
