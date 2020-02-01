@@ -38,7 +38,6 @@ function App() {
           <About />
           <Users />
           {token && <Register />}
-          <Register />
         </main>
         <Footer />
         <SuccessModal
