@@ -30,6 +30,7 @@ const Register = () => {
     setSubmitting(true);
     if (!imageField) {
       setErrors({ photo: 'Error' });
+      setSubmitting(false);
       return;
     }
     let formData = new FormData();
