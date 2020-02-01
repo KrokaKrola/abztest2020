@@ -1,3 +1,8 @@
+/* font connection mixin */
+/* $f-name - font name */
+/* $f-style - font style (normal|light|semibold etc) */
+/* $f-weight - font weight (400|300|500 etc) */
+/* $f-url - path to font */
 @mixin font($f-name, $f-style, $f-weight, $f-url) {
 	@font-face {
 	  font-family: $f-name;

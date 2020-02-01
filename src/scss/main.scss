@@ -1,7 +1,10 @@
-// basic styles
+// variables
 @import './main/variables.scss';
+// fonts
 @import './main/fonts.scss';
+// global styles
 @import './main/global.scss';
+// reset default styles and modify default
 @import './main/scafolding.scss';
 
 // Layout components
@@ -14,11 +17,10 @@
 @import './Footer/Footer.scss';
 @import './MobileMenu/MobileMenu.scss';
 
-// Decorations
+// Decorations / Components styles
 @import './decorations/btn.scss';
 @import './decorations/TextInput.scss';
 @import './decorations/RadioButton.scss';
 @import './decorations/FileUpload.scss';
 @import './decorations/tooltip.scss';
 @import './decorations/modal.scss';
-@import './decorations/spinner.scss';

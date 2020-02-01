@@ -13,7 +13,7 @@ import MobileMenu from './components/MobileMenu';
 import { isMobile, isIOS } from 'react-device-detect';
 
 function App() {
-  const [{ modalShow }, dispatch] = useAppState();
+  const [{ modalShow, token }, dispatch] = useAppState();
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
   useEffect(() => {
@@ -37,6 +37,7 @@ function App() {
           <Hero />
           <About />
           <Users />
+          {token && <Register />}
           <Register />
         </main>
         <Footer />

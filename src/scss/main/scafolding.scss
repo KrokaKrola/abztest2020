@@ -145,3 +145,10 @@ p {
   font-size: 16px;
   line-height: 24px;
 }
+
+a {
+  color: #393939;
+  &:hover {
+    color: $primary-color;
+  }
+}

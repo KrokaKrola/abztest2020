@@ -1,3 +1,4 @@
+/* bootstrap modal styles */
 .modal-open {
   overflow: hidden;
 }
@@ -160,7 +161,7 @@
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1rem;
-  color: rgb(76, 75, 75);
+  color: $dirty;
 }
 
 .modal-footer {

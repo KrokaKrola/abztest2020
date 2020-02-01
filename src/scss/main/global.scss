@@ -14,6 +14,7 @@
   position: fixed;
 }
 
+// disable page scroll
 .no-scroll {
   overflow: hidden;
 }
@@ -38,6 +39,7 @@
   }
 }
 
+// main container
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -71,6 +73,7 @@
       visibility: visible;
     }
   }
+  //stick header to the top
   .header {
     flex: 0 0 auto;
   }
@@ -78,14 +81,9 @@
     position: relative;
     flex: 1 0 auto;
   }
+  //stick footer to the bottom
   .footer {
     flex: 0 0 auto;
   }
 }
 
-a {
-  color: #393939;
-  &:hover {
-    color: $primary-color;
-  }
-}
