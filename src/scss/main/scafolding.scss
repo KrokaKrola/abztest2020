@@ -88,6 +88,11 @@ figure {
   margin: 0;
 }
 
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .container {
   max-width: 1170px;
   padding: 0 30px;
