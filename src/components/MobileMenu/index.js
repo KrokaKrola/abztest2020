@@ -3,6 +3,7 @@ import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import { useTransition, animated } from 'react-spring';
 import { Link } from 'react-scroll';
 import Logo from '../Logo';
+import { isMobile, isIOS } from 'react-device-detect';
 
 const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
   const mobileMenuRef = useRef(null);
@@ -26,7 +27,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
         <animated.div
           key={key}
           style={props}
-          className={`MobileMenu`}
+          className={`MobileMenu ${isMobile && isIOS ? 'iosFix' : ''}`}
           ref={mobileMenuRef}
         >
           <div className="MobileMenu__wrapper">

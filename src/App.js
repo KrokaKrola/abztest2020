@@ -9,19 +9,17 @@ import Register from './layout/Register';
 import Footer from './layout/Footer';
 import SuccessModal from './components/Modal';
 import MobileMenu from './components/MobileMenu';
-import { isMobile, isIOS } from 'react-device-detect';
 import useToken from './hooks/useToken';
 
 function App() {
   const [{ modalShow, token }, dispatch] = useAppState();
   const [mobileMenuState, setMobileMenuState] = useState(false);
-
+  
   useToken();
 
   return (
     <>
       <MobileMenu
-        className={`${isMobile && isIOS && 'iosFix'}`}
         mobileMenuState={mobileMenuState}
         setMobileMenuState={setMobileMenuState}
       />
