@@ -31,6 +31,7 @@
       color: $black;
       margin-bottom: 19px;
       transition: color 0.2s ease;
+      cursor: pointer;
 
       &.active {
         color: $secondary-color;

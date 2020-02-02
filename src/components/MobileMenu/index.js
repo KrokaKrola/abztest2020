@@ -15,6 +15,11 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
     enter: { transform: 'translate3d(0%, 0,0)' },
     leave: { transform: 'translate3d(-100%, 0,0)' }
   });
+
+  const clickHandler = () => {
+    setMobileMenuState(false);
+  };
+
   return transitions.map(
     ({ item, key, props }) =>
       item && (
@@ -38,6 +43,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to="about"
+                onClick={() => setMobileMenuState(false)}
               >
                 About me
               </Link>
@@ -48,6 +54,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to="footer"
+                onClick={clickHandler}
               >
                 Relationships
               </Link>
@@ -55,9 +62,10 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 activeClass="active"
                 spy={true}
                 smooth={true}
-                offset={-59.99}
+                offset={-39.99}
                 duration={500}
                 to="users"
+                onClick={clickHandler}
               >
                 Users
               </Link>
@@ -65,9 +73,10 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 activeClass="active"
                 spy={true}
                 smooth={true}
-                offset={-59.99}
+                offset={-39.99}
                 duration={500}
                 to="register"
+                onClick={clickHandler}
               >
                 Sign up
               </Link>
@@ -75,9 +84,10 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 activeClass="active"
                 spy={true}
                 smooth={true}
-                offset={-59.99}
+                offset={-39.99}
                 duration={500}
                 to="requirements"
+                onClick={clickHandler}
               >
                 Terms and Conditions
               </Link>
@@ -90,6 +100,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 How it works
               </Link>
@@ -100,6 +111,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Partnership
               </Link>
@@ -110,6 +122,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Help
               </Link>
@@ -120,6 +133,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Leave testimonial
               </Link>
@@ -130,6 +144,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Contact us
               </Link>
@@ -142,6 +157,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Articles
               </Link>
@@ -152,6 +168,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Our news
               </Link>
@@ -162,6 +179,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Testimonials
               </Link>
@@ -172,6 +190,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Licenses
               </Link>
@@ -182,6 +201,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to=""
+                onClick={clickHandler}
               >
                 Privacy Policy
               </Link>
