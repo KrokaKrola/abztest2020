@@ -64,7 +64,10 @@ class TextOverflowTooltip extends React.Component {
     });
     const val = (
       <div
-        style={computedStyle}
+        style={{
+          ...computedStyle,
+          cursor: this.state.showTooltip ? 'pointer' : ''
+        }}
         className={className}
         ref={val => (this.comp = val)}
       >
