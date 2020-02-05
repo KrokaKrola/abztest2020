@@ -156,7 +156,7 @@ const Register = () => {
                     type="text"
                     placeholder="+380 XX XXX XX XX"
                     helpInfo="Enter phone number in international format"
-                    mask="+380999999999"
+                    mask="+380 99 999 99 99"
                     disabled={isSubmitting ? true : false}
                   />
                   <p>Select your position</p>
