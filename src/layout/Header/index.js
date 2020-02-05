@@ -4,6 +4,12 @@ import burger from '../../assets/menu-icon.svg';
 import { Link } from 'react-scroll';
 
 const Header = ({ clickHandler }) => {
+
+  const burgerClick = () => {
+    clickHandler(true);
+    document.querySelector('body').classList.toggle('no-scroll');
+  }
+
   return (
     <header className="Header">
       <div className="container">
@@ -73,7 +79,7 @@ const Header = ({ clickHandler }) => {
             Sign up
           </Link>
         </nav>
-        <span className="burger" id="burger" onClick={() => clickHandler(true)}>
+        <span className="burger" id="burger" onClick={burgerClick}>
           <img src={burger} alt="" />
         </span>
       </div>

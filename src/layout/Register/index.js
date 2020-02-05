@@ -29,7 +29,7 @@ const Register = () => {
   const handleSubmit = (values, { setSubmitting, setErrors, resetForm }) => {
     setSubmitting(true);
     if (!imageField) {
-      setErrors({ photo: 'Error' });
+      setErrors({ photo: requiredError('Photo') });
       setSubmitting(false);
       return;
     }
@@ -100,94 +100,101 @@ const Register = () => {
   return (
     <figure className="Register" id="register">
       <div className="container">
-        <h2 className="section-header">Register to get a work</h2>
-        <span className="subinfo">
-          Attention! After successful registration and alert, update the list of
-          users in the block from the top
-        </span>
-        {!!positions.length && (
-          <Formik
-            initialValues={{
-              name: '',
-              email: '',
-              phone: '',
-              position_id: initialPosition + '',
-              photo: ''
-            }}
-            validationSchema={Yup.object({
-              name: Yup.string()
-                .min(2, minStringError(2))
-                .max(60, maxStringError(60))
-                .required(requiredError),
-              email: Yup.string()
-                .min(2, minStringError(2))
-                .max(100, maxError)
-                .matches(emailPattern, emailError)
-                .required(requiredError),
-              phone: Yup.string()
-                .matches(UAPhoneNumber, phoneError)
-                .required(requiredError)
-            })}
-            onSubmit={handleSubmit}
-          >
-            {({ isSubmitting }) => (
-              <Form>
-                <TextInput
-                  label="Name"
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Your name"
-                  disabled={isSubmitting ? true : false}
-                />
-                <TextInput
-                  label="Email"
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
-                  disabled={isSubmitting ? true : false}
-                />
-                <TextInput
-                  label="Phone number"
-                  id="phone"
-                  name="phone"
-                  type="text"
-                  placeholder="+380 XX XXX XX XX"
-                  helpInfo="Enter phone number in open format"
-                  disabled={isSubmitting ? true : false}
-                />
-                <p>Select your position</p>
-                {positions.map(item => (
-                  <RadioButton
-                    key={item.id}
-                    label={item.name}
-                    name="position_id"
-                    type="radio"
-                    value={item.id + ''}
+        {!!positions.length ? (
+          <>
+            <h2 className="section-header">Register to get a work</h2>
+            <span className="subinfo">
+              Attention! After successful registration and alert, update the
+              list of users in the block from the top
+            </span>
+            <Formik
+              initialValues={{
+                name: '',
+                email: '',
+                phone: '',
+                position_id: initialPosition + '',
+                photo: ''
+              }}
+              validationSchema={Yup.object({
+                name: Yup.string()
+                  .min(2, minStringError(2))
+                  .max(60, maxStringError(60))
+                  .required(requiredError('Name')),
+                email: Yup.string()
+                  .min(2, minStringError(2))
+                  .max(100, maxError)
+                  .matches(emailPattern, emailError)
+                  .required(requiredError('Email')),
+                phone: Yup.string()
+                  .matches(UAPhoneNumber, phoneError)
+                  .required(requiredError('Phone')),
+              })}
+              onSubmit={handleSubmit}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextInput
+                    label="Name"
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
                     disabled={isSubmitting ? true : false}
                   />
-                ))}
-                <FileUpload
-                  label="Photo"
-                  name="photo"
-                  type="file"
-                  setImageField={setImageField}
-                  placeholder="Upload your photo"
-                  fileName={fileName}
-                  setFileName={setFileName}
-                  disabled={isSubmitting ? true : false}
-                />
-                <button
-                  type="submit"
-                  className="btn"
-                  disabled={isSubmitting ? true : false}
-                >
-                  Sing up now
-                </button>
-              </Form>
-            )}
-          </Formik>
+                  <TextInput
+                    label="Email"
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Your email"
+                    disabled={isSubmitting ? true : false}
+                  />
+                  <TextInput
+                    label="Phone number"
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    placeholder="+380 XX XXX XX XX"
+                    helpInfo="Enter phone number in international format"
+                    mask="+380999999999"
+                    disabled={isSubmitting ? true : false}
+                  />
+                  <p>Select your position</p>
+                  {positions.map(item => (
+                    <RadioButton
+                      key={item.id}
+                      label={item.name}
+                      name="position_id"
+                      type="radio"
+                      value={item.id + ''}
+                      disabled={isSubmitting ? true : false}
+                    />
+                  ))}
+                  <FileUpload
+                    label="Photo"
+                    name="photo"
+                    type="file"
+                    setImageField={setImageField}
+                    placeholder="Upload your photo"
+                    fileName={fileName}
+                    setFileName={setFileName}
+                    disabled={isSubmitting ? true : false}
+                  />
+                  <button
+                    type="submit"
+                    className="btn"
+                    disabled={isSubmitting ? true : false}
+                  >
+                    Sing up now
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </>
+        ) : (
+          <h2 className="section-header">
+            Registration is not available right now.
+          </h2>
         )}
       </div>
     </figure>

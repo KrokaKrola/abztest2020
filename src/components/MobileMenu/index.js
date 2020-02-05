@@ -3,13 +3,14 @@ import useOutsideAlerter from '../../hooks/useOutsideAlerter';
 import { useTransition, animated } from 'react-spring';
 import { Link } from 'react-scroll';
 import Logo from '../Logo';
-import { isMobile, isIOS } from 'react-device-detect';
+import { isMobile} from 'react-device-detect';
 
 const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
   const mobileMenuRef = useRef(null);
   const outsideMarker = useOutsideAlerter(mobileMenuRef);
   if (mobileMenuState && outsideMarker) {
     setMobileMenuState(false);
+    document.querySelector('body').classList.toggle('no-scroll');
   }
   const transitions = useTransition(mobileMenuState, null, {
     from: { transform: 'translate3d(-100%, 0,0)' },
@@ -19,6 +20,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
 
   const clickHandler = () => {
     setMobileMenuState(false);
+    document.querySelector('body').classList.toggle('no-scroll');
   };
 
   return transitions.map(
@@ -27,7 +29,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
         <animated.div
           key={key}
           style={props}
-          className={`MobileMenu ${isMobile && isIOS ? 'iosFix' : ''}`}
+          className={`MobileMenu ${isMobile ? 'browserBottomFix' : ''}`}
           ref={mobileMenuRef}
         >
           <div className="MobileMenu__wrapper">
@@ -44,7 +46,7 @@ const MobileMenu = ({ mobileMenuState, setMobileMenuState }) => {
                 offset={-59.99}
                 duration={500}
                 to="about"
-                onClick={() => setMobileMenuState(false)}
+                onClick={clickHandler}
               >
                 About me
               </Link>

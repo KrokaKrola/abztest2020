@@ -1,8 +1,9 @@
 import React from 'react';
 import { useField } from 'formik';
+import InputMask from 'react-input-mask';
 import PropTypes from 'prop-types';
 
-const TextInput = ({ label, helpInfo, ...props }) => {
+const TextInput = ({ label, helpInfo, mask, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <div
@@ -11,7 +12,12 @@ const TextInput = ({ label, helpInfo, ...props }) => {
       }`}
     >
       <label htmlFor={props.id || props.name}>{label}</label>
-      <input {...field} {...props} />
+      {!mask ? (
+        <input {...field} {...props} />
+      ) : (
+        <InputMask {...field} {...props} mask={mask} />
+      )}
+
       <div className="TextInput__info">
         {meta.touched && meta.error ? (
           <div className="error">{meta.error}</div>

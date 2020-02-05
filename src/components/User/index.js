@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import TextOverflowTooltip from '../TextOverflowTooltip';
 import PropTypes from 'prop-types';
 import { animated } from 'react-spring';
 
 const User = ({ user, style }) => {
   const { photo, name, position, email, phone } = user;
+  const [avatar, setAvatar] = useState(photo);
+
+  useEffect(() => {
+    function imageExists(url, callback) {
+      var img = new Image();
+      img.onload = function() {
+        callback(true);
+      };
+      img.onerror = function() {
+        callback(false);
+      };
+      img.src = url;
+    }
+
+    imageExists(photo, function(exists) {
+      if (!exists) {
+        setAvatar('https://via.placeholder.com/70');
+      }
+    });
+  }, [photo]);
 
   return (
     <animated.div className="User" style={style}>
       <div className="User__avatar">
-        <img src={photo || 'https://via.placeholder.com/70'} alt={name} />
+        <img src={avatar} alt={name} />
       </div>
       <TextOverflowTooltip
         popoverPlacement="bottom"
