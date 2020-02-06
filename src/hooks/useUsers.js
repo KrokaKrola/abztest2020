@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { instance } from '../service/settings';
 import { useAppState } from '../store/app-state';
+import { isMobile} from 'react-device-detect';
 
 export default function() {
   const [{ nextPage }, dispatch] = useAppState();
@@ -15,7 +16,7 @@ export default function() {
     if (!cleanup) {
       setIsLoading(true);
       instance
-        .get(`${nextPage.link ? nextPage.link : `/users?page=1&count=6`}`)
+        .get(`${nextPage.link ? nextPage.link : `/users?page=1&count=${isMobile ? 3 : 6}`}`)
         .then(result => {
           setPageStatus({
             total_pages: result.data.total_pages,
