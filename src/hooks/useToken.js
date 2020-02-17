@@ -1,9 +1,7 @@
 import { useEffect } from 'react';
-import { useAppState } from '../store/app-state';
 import { instance } from '../service/settings';
 
-export default function() {
-  const [, dispatch] = useAppState();
+export default function (dispatch) {
   useEffect(() => {
     let cleanup = false;
     if (!cleanup) {

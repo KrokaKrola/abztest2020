@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import usePositions from '../../hooks/usePositions';
-import { useAppState } from '../../store/app-state';
 import { instance } from '../../service/settings';
 import TextInput from '../../components/TextInput';
 import FileUpload from '../../components/FileUpload';
@@ -17,14 +16,14 @@ import {
 } from '../../utils/errorMessages';
 import { emailPattern, UAPhoneNumber } from '../../utils/patterns';
 
-const Register = () => {
+const Register = ({token, dispatch}) => {
   const [imageField, setImageField] = useState('');
   const [fileName, setFileName] = useState('');
 
   const positions = usePositions();
   const initialPosition = positions.length && positions[0].id;
 
-  const [{ token }, dispatch] = useAppState();
+  // const [{ token }, dispatch] = useAppState();
 
   const handleSubmit = (values, { setSubmitting, setErrors, resetForm }) => {
     setSubmitting(true);

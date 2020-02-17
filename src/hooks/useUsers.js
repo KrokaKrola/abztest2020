@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import { instance } from '../service/settings';
-import { useAppState } from '../store/app-state';
 import { isMobile} from 'react-device-detect';
 
-export default function() {
-  const [{ nextPage }, dispatch] = useAppState();
+export default function(nextPage, setUsersAction, fetchUsers) {
   const [localNextPage, setLocalNextPage] = useState(null);
   const [pageStatus, setPageStatus] = useState({
     total_pages: null,
@@ -22,7 +20,7 @@ export default function() {
             total_pages: result.data.total_pages,
             page: result.data.page
           });
-          dispatch({ type: 'SET_USERS', users: result.data.users });
+          setUsersAction(result.data.users);
           if (result.data.links.next_url) {
             setLocalNextPage(result.data.links.next_url.split('v1')[1]);
           }
@@ -36,7 +34,7 @@ export default function() {
     return () => {
       cleanup = true;
     };
-  }, [dispatch, nextPage]);
+  }, [setUsersAction, nextPage]);
 
   return [localNextPage, pageStatus, isLoading];
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { initialState, appStateReducer } from './store/appReducer';
-import AppStateProvider, { useAppState } from './store/app-state';
+import {connect} from 'react-redux';
 import Header from './layout/Header';
 import Hero from './layout/Hero';
 import About from './layout/About';
@@ -11,12 +10,9 @@ import SuccessModal from './components/Modal';
 import MobileMenu from './components/MobileMenu';
 import useToken from './hooks/useToken';
 
-function App() {
-  const [{ modalShow, token }, dispatch] = useAppState();
+function App({modalShow, token, dispatch}) {
   const [mobileMenuState, setMobileMenuState] = useState(false);
-  
-  useToken();
-
+  useToken(dispatch);
   return (
     <>
       <MobileMenu
@@ -29,7 +25,7 @@ function App() {
           <Hero />
           <About />
           <Users />
-          {token && <Register />}
+          {token.token && <Register />}
         </main>
         <Footer />
         <SuccessModal
@@ -43,10 +39,17 @@ function App() {
   );
 }
 
-export default () => {
-  return (
-    <AppStateProvider reducer={appStateReducer} initialState={initialState}>
-      <App />
-    </AppStateProvider>
-  );
-};
+function mapState (state) {
+  return {
+    token: state.token,
+    modalShow: state.modalShow
+  }
+}
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch
+  }
+}
+
+export default connect(mapState, mapDispatch)(App);
